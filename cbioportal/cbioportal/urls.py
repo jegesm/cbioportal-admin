@@ -11,8 +11,8 @@ def req_test(request):
 
 urlpatterns = [
 ## ##    #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-#    url(r'^cbioportal-admin/', include(admin.site.urls)),
-    url(r'^cbioportal-admin/', admin.site.urls, name="admin"),
+    url(r'^cbioportal-admin/', include(admin.site.urls)),
+#    url(r'^cbioportal-admin/', admin.site.urls, name="admin"),
 #    url(r'^cbioportal-admin/cbioadmin/', admin.site.urls),
         
 #    url(r'^admin/', include('cbioportal.admin')),

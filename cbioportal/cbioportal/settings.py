@@ -22,26 +22,24 @@ LDAP_ADMIN = os.getenv('LDAP_ADMIN', 'admin')
 ALLOWED_HOSTS = (
             DOMAIN,
                 '%s-nginx' % PREFIX,
-                )
-
-INSTALLED_APPS = (
-            'django.contrib.admin',
-            'django.contrib.auth',
-            'django.contrib.contenttypes',
-#            'django.contrib.sites',
-            'django.contrib.sessions',
-            'django.contrib.messages',
-            'django.contrib.staticfiles',
-            'social_django',
-            'django_tables2',
-#            'bootstrap3',
-            'hub',
-                                                )
-
-ALLOWED_HOSTS = (
     'localhost',
     'kooplex-fiek.elte.hu',
-)
+                )
+
+#INSTALLED_APPS = (
+#            'django.contrib.admin',
+#            'django.contrib.auth',
+#            'django.contrib.contenttypes',
+##            'django.contrib.sites',
+#            'django.contrib.sessions',
+#            'django.contrib.messages',
+#            'django.contrib.staticfiles',
+#            'social_django',
+#            'django_tables2',
+##            'bootstrap3',
+##            'hub',
+#)
+
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -176,9 +174,6 @@ AUTHENTICATION_BACKENDS = (
 
 
 #STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\', '/')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-)
 
 
 MIDDLEWARE_CLASSES = (
@@ -193,9 +188,7 @@ MIDDLEWARE_CLASSES = (
 SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 CORS_ORIGIN_ALLOW_ALL = True
 
-ROOT_URLCONF = 'cbioportal.urls'
 
-WSGI_APPLICATION = 'cbioportal.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -221,80 +214,80 @@ REST_FRAMEWORK = {
 # logger = logging.getLogger(__name__)
 
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-       'verbose': {
-            'format': '%(levelname)s -- [%(asctime)s] %(module)s:%(lineno)s - %(funcName)s -  %(message)s'
-        },
-        'tooverbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
-        'dfile': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/debug-hub.log',
-            'formatter': 'verbose',
-        },
-        'ifile': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/info-hub.log',
-            'formatter': 'verbose',
-        },
-        'wfile': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/warning-hub.log',
-            'formatter': 'verbose',
-        },
-        'efile': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/error-hub.log',
-            'formatter': 'verbose',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/tmp/django.log',
-        },
-
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-        'cbioportal': {
-            'handlers': ['dfile', 'ifile', 'wfile', 'efile'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-
-   }
-}
-
+#LOGGING = {
+#    'version': 1,
+#    'disable_existing_loggers': False,
+#    'formatters': {
+#       'verbose': {
+#            'format': '%(levelname)s -- [%(asctime)s] %(module)s:%(lineno)s - %(funcName)s -  %(message)s'
+#        },
+#        'tooverbose': {
+#            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+#        },
+#        'simple': {
+#            'format': '%(levelname)s %(message)s'
+#        },
+#    },
+#    'filters': {
+#        'require_debug_false': {
+#            '()': 'django.utils.log.RequireDebugFalse'
+#        }
+#    },
+#    'handlers': {
+#        'mail_admins': {
+#            'level': 'ERROR',
+#            'filters': ['require_debug_false'],
+#            'class': 'django.utils.log.AdminEmailHandler'
+#        },
+#        'dfile': {
+#            'level': 'DEBUG',
+#            'class': 'logging.FileHandler',
+#            'filename': '/tmp/debug-hub.log',
+#            'formatter': 'verbose',
+#        },
+#        'ifile': {
+#            'level': 'INFO',
+#            'class': 'logging.FileHandler',
+#            'filename': '/tmp/info-hub.log',
+#            'formatter': 'verbose',
+#        },
+#        'wfile': {
+#            'level': 'WARNING',
+#            'class': 'logging.FileHandler',
+#            'filename': '/tmp/warning-hub.log',
+#            'formatter': 'verbose',
+#        },
+#        'efile': {
+#            'level': 'ERROR',
+#            'class': 'logging.FileHandler',
+#            'filename': '/tmp/error-hub.log',
+#            'formatter': 'verbose',
+#        },
+#        'file': {
+#            'level': 'DEBUG',
+#            'class': 'logging.FileHandler',
+#            'filename': '/tmp/django.log',
+#        },
+#
+#    },
+#    'loggers': {
+#        'django.request': {
+#            'handlers': ['mail_admins'],
+#            'level': 'ERROR',
+#            'propagate': True,
+#        },
+#        'cbioportal': {
+#            'handlers': ['dfile', 'ifile', 'wfile', 'efile'],
+#            'level': 'DEBUG',
+#            'propagate': True,
+#        },
+#        'django': {
+#            'handlers': ['file'],
+#            'level': 'DEBUG',
+#            'propagate': True,
+#        },
+#
+#   }
+#}
+#
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
